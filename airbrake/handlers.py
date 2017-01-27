@@ -91,7 +91,7 @@ class AirbrakeHandler(logging.Handler):
                     SubElement(cgi_data, 'var', dict(key=key)).text = str(value)
 
         error = SubElement(xml, 'error')
-        SubElement(error, 'class').text = exn.__class__.__name__ if exn else ''
+        SubElement(error, 'class').text = exn.__class__.__name__ if exn else 'Undefined'
         SubElement(error, 'message').text = message
 
         backtrace = SubElement(error, 'backtrace')
